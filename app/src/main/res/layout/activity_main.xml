@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/entryField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/secondActions"
+        android:gravity="center_vertical|end"
+        android:textColor="#000000"
+        android:textSize="50sp" />
+
+    <LinearLayout
+        android:id="@+id/firstActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entryField"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/actionClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionNegate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="±"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entryField"
+        android:layout_toEndOf="@id/firstActions"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/actionDivide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="÷"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="×"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionSubtract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/actionCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numbersSevenToNine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstActions"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/numberSeven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberEight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberNine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numbersFourToSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numbersSevenToNine"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/numberFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberSix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numbersOneToThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numbersFourToSix"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/numberOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/numberThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numberZeroAndPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numbersOneToThree"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/secondActions"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/numberZero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/signPoint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="."
+            android:textSize="30sp" />
+    </LinearLayout>
+</RelativeLayout>
