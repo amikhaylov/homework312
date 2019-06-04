@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
         final Button numberEight = findViewById(R.id.numberEight);
         final Button numberNine = findViewById(R.id.numberNine);
         final Button signPoint = findViewById(R.id.signPoint);
+        final Button actionClear = findViewById(R.id.actionClear);
+        final Button actionNegate = findViewById(R.id.actionNegate);
+        final Button actionPercent = findViewById(R.id.actionPercent);
+        final Button actionDivide = findViewById(R.id.actionDivide);
+        final Button actionMultiply = findViewById(R.id.actionMultiply);
+        final Button actionSubtract = findViewById(R.id.actionSubtract);
+        final Button actionAdd = findViewById(R.id.actionAdd);
+        final Button actionCalculate = findViewById(R.id.actionCalculate);
 
         numberZero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +109,86 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 entryField.append(signPoint.getText());
+            }
+        });
+
+        actionClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.setText("");
+            }
+        });
+
+        actionNegate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionNegate.getText());
+            }
+        });
+
+        actionPercent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionPercent.getText());
+            }
+        });
+
+        actionDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionDivide.getText());
+            }
+        });
+
+        actionMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionMultiply.getText());
+            }
+        });
+
+        actionSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionSubtract.getText());
+            }
+        });
+
+        actionAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entryField.append(actionAdd.getText());
+            }
+        });
+
+        actionCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s1 = entryField.getText().toString();
+                String s2 = s1.substring(1);
+                if (s2.indexOf('+') != -1) {
+                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('+')));
+                    int b = Integer.parseInt(s1.substring(s1.indexOf('+') + 1));
+                    entryField.append("=" + (a + b));
+                } else if (s2.indexOf('×') != -1) {
+                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('×')));
+                    int b = Integer.parseInt(s1.substring(s1.indexOf('×') + 1));
+                    entryField.append("=" + (a * b));
+                } else if (s2.indexOf('÷') != -1) {
+                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('÷')));
+                    int b = Integer.parseInt(s1.substring(s1.indexOf('÷') + 1));
+                    entryField.append("=" + (a / b));
+                } else if (s2.indexOf('-') != -1 && s1.charAt(0) != '-') {
+                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('-')));
+                    int b = Integer.parseInt(s1.substring(s1.indexOf('-') + 1));
+                    entryField.append("=" + (a - b));
+                } else if (s2.indexOf('-') != -1 && s1.charAt(0) == '-') {
+                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('-', s1.indexOf('-') + 1)));
+                    int b = Integer.parseInt(s1.substring(s1.indexOf('-', s1.indexOf('-') + 1) + 1));
+                    entryField.append("=" + (a - b));
+                } else {
+                    entryField.append(actionCalculate.getText());
+                }
             }
         });
     }
