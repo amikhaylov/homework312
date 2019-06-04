@@ -115,14 +115,25 @@ public class MainActivity extends AppCompatActivity {
         actionClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (entryField.length() > 0) {
+                    entryField.setText(entryField.getText().toString().substring(0, entryField.length() - 1));
+                }
+            }
+        });
+
+        actionClear.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 entryField.setText("");
+                return false;
             }
         });
 
         actionNegate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                entryField.append(actionNegate.getText());
+                double a = Double.parseDouble(entryField.getText().toString());
+                entryField.setText(String.valueOf(-a));
             }
         });
 
@@ -167,27 +178,29 @@ public class MainActivity extends AppCompatActivity {
                 String s1 = entryField.getText().toString();
                 String s2 = s1.substring(1);
                 if (s2.indexOf('+') != -1) {
-                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('+')));
-                    int b = Integer.parseInt(s1.substring(s1.indexOf('+') + 1));
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('+')));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('+') + 1));
                     entryField.append("=" + (a + b));
                 } else if (s2.indexOf('×') != -1) {
-                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('×')));
-                    int b = Integer.parseInt(s1.substring(s1.indexOf('×') + 1));
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('×')));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('×') + 1));
                     entryField.append("=" + (a * b));
                 } else if (s2.indexOf('÷') != -1) {
-                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('÷')));
-                    int b = Integer.parseInt(s1.substring(s1.indexOf('÷') + 1));
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('÷')));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('÷') + 1));
                     entryField.append("=" + (a / b));
+                } else if (s2.indexOf('%') != -1) {
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('%')));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('%') + 1));
+                    entryField.append("=" + (a * b / 100));
                 } else if (s2.indexOf('-') != -1 && s1.charAt(0) != '-') {
-                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('-')));
-                    int b = Integer.parseInt(s1.substring(s1.indexOf('-') + 1));
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('-')));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('-') + 1));
                     entryField.append("=" + (a - b));
                 } else if (s2.indexOf('-') != -1 && s1.charAt(0) == '-') {
-                    int a = Integer.parseInt(s1.substring(0, s1.indexOf('-', s1.indexOf('-') + 1)));
-                    int b = Integer.parseInt(s1.substring(s1.indexOf('-', s1.indexOf('-') + 1) + 1));
+                    double a = Double.parseDouble(s1.substring(0, s1.indexOf('-', s1.indexOf('-') + 1)));
+                    double b = Double.parseDouble(s1.substring(s1.indexOf('-', s1.indexOf('-') + 1) + 1));
                     entryField.append("=" + (a - b));
-                } else {
-                    entryField.append(actionCalculate.getText());
                 }
             }
         });
